@@ -1,16 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import MyContext from "../../context/data/MyContext";
 
 const Filter = () => {
+  const content = useContext(MyContext);
   return (
     <div>
       <div className=" container mx-auto px-4 mt-5 ">
-        <div
-          className="p-5 rounded-lg bg-gray-100 drop-shadow-xl border border-gray-200"
-          style={{
-            backgroundColor: mode === "dark" ? "#282c34" : "",
-            color: mode === "dark" ? "white" : "",
-          }}
-        >
+        <div className="p-5 rounded-lg bg-gray-100 drop-shadow-xl border border-gray-200">
           <div className="relative">
             <div className="absolute flex items-center ml-2 h-full">
               <svg
@@ -30,18 +26,11 @@ const Filter = () => {
               id="searchkey"
               placeholder="Search here"
               className="px-8 py-3 w-full rounded-md bg-violet-0 border-transparent outline-0 text-sm"
-              style={{
-                backgroundColor: mode === "dark" ? "rgb(64 66 70)" : "",
-                color: mode === "dark" ? "white" : "",
-              }}
             />
           </div>
           <div className="flex items-center justify-between mt-4">
             <p className="font-medium">Filters</p>
-            <button
-              className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
-              style={{ color: mode === "dark" ? "white" : "" }}
-            >
+            <button className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
               Reset Filter
             </button>
           </div>
@@ -51,10 +40,6 @@ const Filter = () => {
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
                 className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-                style={{
-                  backgroundColor: mode === "dark" ? "rgb(64 66 70)" : "",
-                  color: mode === "dark" ? "white" : "",
-                }}
               >
                 {product.map((item, index) => {
                   return <option value={item.category}>{item.category}</option>;
@@ -64,10 +49,6 @@ const Filter = () => {
                 value={filterPrice}
                 onChange={(e) => setFilterPrice(e.target.value)}
                 className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0  focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-                style={{
-                  backgroundColor: mode === "dark" ? "rgb(64 66 70)" : "",
-                  color: mode === "dark" ? "white" : "",
-                }}
               >
                 {product.map((item, index) => {
                   return <option value={item.price}>{item.price}</option>;
