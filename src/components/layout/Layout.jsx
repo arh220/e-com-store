@@ -5,7 +5,7 @@ import MyContext from "../../context/data/MyContext";
 
 const Layout = ({ children }) => {
   const context = useContext(MyContext);
-  const { mode, toggleMode } = context;
+  const { mode } = context;
 
   useEffect(() => {
     document.body.style.backgroundColor =

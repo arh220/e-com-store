@@ -8,15 +8,9 @@ import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
   const context = useContext(MyContext);
   const { mode, toggleMode } = context;
 
-  useEffect(() => {
-    document.body.style.backgroundColor =
-      mode === "dark" ? "#282c34" : "#ffffff";
-    document.body.style.color = mode === "dark" ? "white" : "black";
-  }, [mode]);
   return (
     <div className="bg-white sticky top-0 z-50">
       <Transition.Root show={open} as={Fragment}>
@@ -205,12 +199,13 @@ const Navbar = () => {
                     Admin
                   </Link>
 
-                  <a
+                  <Link
+                    to={"/signup"}
                     className="text-sm font-medium text-gray-700 cursor-pointer  "
                     style={{ color: mode === "dark" ? "white" : "" }}
                   >
-                    Logout
-                  </a>
+                    Signup
+                  </Link>
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
